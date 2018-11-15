@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "8192"
-    vb.name = "os-data-converter"
+    vb.name = "test machine"
   end
 
   config.vm.provision "ansible_local" do |ansible|
