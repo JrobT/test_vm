@@ -1,0 +1,27 @@
+---
+
+- hosts: all
+  tasks:
+    - name: Install software-properties-common
+      apt:
+        name: software-properties-common
+        cache_valid_time: 3600
+    - name: Add Ansible PPA
+      apt_repository:
+        repo: ppa:ansible/ansible
+        update_cache: yes
+    - name: Install Ansible
+      apt:
+        name: ansible
+        cache_valid_time: 3600
+    - name: Install pip
+      apt:
+        name: python-pip
+        cache_valid_time: 3600
+
+    - name: Install aws, awscli
+      pip:
+        name: "{{ item }}"
+      with_items:
+        - aws
+        - awscli
